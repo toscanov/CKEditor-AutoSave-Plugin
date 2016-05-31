@@ -87,6 +87,8 @@
 
     };
     var onTimer = function(event) {
+        event.editor.config.autosave_timeOutId = 0;
+
         if (savingActive) {
             startTimer(event);
         } else if (event.editor.checkDirty() || event.editor.plugins.bbcode) {
@@ -96,7 +98,6 @@
 
             SaveData(autoSaveKey, editor);
 
-            event.editor.config.autosave_timeOutId = 0;
             savingActive = false;
         }
     };
